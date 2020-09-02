@@ -1,28 +1,8 @@
-<div class="example-wrapper row">
-    <div class="example-header col-3 mb-3">
-        <ng-container>
-            Show
-            <select [(ngModel)]='gridOptions.paginationPageSize' (change)='pageFunction(gridOptions.paginationPageSize)' id="page-size">
-              <option value="10">10</option>
-              <option value="100">100</option>
-              <option value="500">500</option>
-              <option value="1000">1000</option>
-            </select>
-              <!-- <ng-select style="width: 7%;" [clearable]="false" [items]='pageOptions' [(ngModel)]='gridOptions.paginationPageSize' (change)='pageFunction(gridOptions.paginationPageSize)' [searchable]='false'></ng-select> -->
-            Entries
-        </ng-container>
+<div class="row">
+    <div class="col-sm-12">
+      <h3>Data Table</h3>
+      <ngx-datatable tableClass="table table-striped table-bordered" class='pagination-lg' [tableId]="'basic'" [data]="tableData" [options]="options"
+        [columns]="columns">
+      </ngx-datatable>
     </div>
-    <ng-container class="col-3 mb-3">
-        Search
-        <input type="text" id="filter-text-box" [(ngModel)]='searchText' (keyup)="onQuickFilterTypeChanged(searchText)"/>
-    </ng-container>
-    <div id="myGrid" class="ag-theme-alpine"></div>
   </div>
-<ag-grid-angular
-    #agGrid
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
-    [gridOptions]="gridOptions"
-    >
-</ag-grid-angular>

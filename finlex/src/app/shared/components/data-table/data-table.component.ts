@@ -1,61 +1,36 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
+import { Component, ViewChild, TemplateRef, OnInit, Input } from '@angular/core';
+import { MainService } from 'src/app/services/main.service';
 
 @Component({
   selector: 'app-data-table',
-  templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.scss']
+  templateUrl: './data-table.component.html'
 })
 
-export class DataTableComponent implements OnInit, AfterViewInit {
-  @ViewChild('agGrid') agGrid: AgGridAngular;
+export class DataTableComponent implements OnInit  {
+  options = {};
+  data = [];
+  columns: any = {};
 
-  constructor() { }
+  optionsBasicNoData = {};
+  dataBasicNoData = [];
+  columnsBasicNoData: any = {};
+
   @Input() tableData: any;
-  title = 'app';
-  pageOptions = [1, 10, 25, 50, 100];
-  columnDefs;
-  rowData;
-  gridOptions = {
-    pagination: true,
-    paginationPageSize : 10,
-    domLayout: 'autoHeight'
-  };
-  searchText;
+  constructor(private appService: MainService) { }
   ngOnInit(): void {
-    this.rowData = this.tableData;
     let headers;
-    if (this.rowData.length && this.rowData[0]){
-      headers = Object.keys(this.rowData[0]);
+    if (this.tableData.length && this.tableData[0]){
+      headers = Object.keys(this.tableData[0]);
     }
-    this.columnDefs = headers.map((header) => {
+    this.columns = headers.map((header) => {
       return {
-        headerName: this.capitalizeFirstLetter(header),
-        field: header,
-        sortable: true,
-        filter: true,
-        resizable: true,
-        autoHeight: true
+        title: this.capitalizeFirstLetter(header),
+        key: header,
       };
     });
-  }
-
-  ngAfterViewInit(){
-    this.agGrid.api.sizeColumnsToFit();
   }
 
   capitalizeFirstLetter(text: string) {
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
-
-  pageFunction(pageSize){
-    this.agGrid.paginationPageSize = pageSize;
-    this.agGrid.cacheBlockSize = pageSize;
-    this.agGrid.api.onSortChanged();
-  }
-
-
-  onQuickFilterTypeChanged(text) {
-    this.agGrid.api.setQuickFilter(text);
-}
 }

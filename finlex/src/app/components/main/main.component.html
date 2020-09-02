@@ -1,2 +1,3 @@
 <!-- <p>main works!</p> -->
-<app-data-table [tableData]='tableData'></app-data-table>
+<!-- <app-data-table [tableData]='tableData'></app-data-table> -->
+<app-data-table [tableData]='tableData' *ngIf='tableData.length'></app-data-table>

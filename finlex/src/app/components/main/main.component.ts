@@ -12,6 +12,6 @@ export class MainComponent implements OnInit {
   ) { }
   tableData;
   ngOnInit(): void {
-    this.tableData = this.mainService.getTableData();
+    this.tableData = this.mainService.getData();
   }
 }

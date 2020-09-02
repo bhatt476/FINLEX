@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataTableComponent } from '../data-table/data-table.component';
-import { AgGridModule } from 'ag-grid-angular';
 import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
-
+import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
+import { MainService } from '../../../services/main.service';
 
 @NgModule({
   declarations: [
-    DataTableComponent
+    DataTableComponent,
   ],
   imports: [
     CommonModule,
-    AgGridModule.withComponents([]),
     FormsModule,
-    NgSelectModule
+    NgxDatatableModule
   ],
   exports: [
     DataTableComponent,
     FormsModule,
-    NgSelectModule
-  ]
+  ],
+  providers: [MainService]
 })
 export class SharedModuleModule { }
