@@ -19,6 +19,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   gridOptions = {
     pagination: true,
     paginationPageSize : 10,
+    domLayout: 'autoHeight'
   };
   searchText;
   ngOnInit(): void {
