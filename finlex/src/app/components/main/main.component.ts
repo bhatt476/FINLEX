@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-
+import { MainService } from '../../services/main.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -7,13 +7,11 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private mainService: MainService
+  ) { }
   tableData;
   ngOnInit(): void {
-    this.tableData = [
-      { make: 'Toyota', model: 'Celica', price: 35000 },
-      { make: 'Ford', model: 'Mondeo', price: 32000 },
-      { make: 'Porsche', model: 'Boxter', price: 72000 }
-    ];
+    this.tableData = this.mainService.getTableData();
   }
 }

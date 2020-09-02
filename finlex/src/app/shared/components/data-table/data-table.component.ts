@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 
 @Component({
@@ -7,7 +7,7 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./data-table.component.scss']
 })
 
-export class DataTableComponent implements OnInit {
+export class DataTableComponent implements OnInit, AfterViewInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
 
   constructor() { }
@@ -18,7 +18,7 @@ export class DataTableComponent implements OnInit {
   rowData;
   gridOptions = {
     pagination: true,
-    paginationPageSize : 10
+    paginationPageSize : 10,
   };
   searchText;
   ngOnInit(): void {
@@ -28,10 +28,19 @@ export class DataTableComponent implements OnInit {
       headers = Object.keys(this.rowData[0]);
     }
     this.columnDefs = headers.map((header) => {
-      return {headerName: this.capitalizeFirstLetter(header), field: header, sortable: true, filter: true};
+      return {
+        headerName: this.capitalizeFirstLetter(header),
+        field: header,
+        sortable: true,
+        filter: true,
+        resizable: true,
+        autoHeight: true
+      };
     });
+  }
 
-    console.log('ehy', headers, this.columnDefs);
+  ngAfterViewInit(){
+    this.agGrid.api.sizeColumnsToFit();
   }
 
   capitalizeFirstLetter(text: string) {
