@@ -1,1 +1,24 @@
-<p>data-table works!</p>
+<div class="example-wrapper">
+    <div class="example-header row">
+      Show
+      <select [(ngModel)]='gridOptions.paginationPageSize' (change)='pageFunction(gridOptions.paginationPageSize)' id="page-size">
+        <option value="10">10</option>
+        <option value="100">100</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+      </select>
+        <!-- <ng-select style="width: 7%;" [clearable]="false" [items]='pageOptions' [(ngModel)]='gridOptions.paginationPageSize' (change)='pageFunction(gridOptions.paginationPageSize)' [searchable]='false'></ng-select> -->
+      Entries
+    </div>
+    <input type="text" id="filter-text-box" placeholder="Filter..." [(ngModel)]='searchText' (keyup)="onQuickFilterTypeChanged(searchText)"/>
+    <div id="myGrid" class="ag-theme-alpine"></div>
+  </div>
+<ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    >
+</ag-grid-angular>
