@@ -9,6 +9,6 @@ export class MainService {
   constructor(private httpClient: HttpClient) {}
 
   getData1(){
-    return this.httpClient.get('assets/data1.json');
+    return this.httpClient.get('assets/data1s.json');
   }
 }

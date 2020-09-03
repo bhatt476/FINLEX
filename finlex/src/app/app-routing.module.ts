@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 const routes: Routes = [
   {
     path: '',
@@ -9,8 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'data',
-    // canActivate: [AppAuthGuard],
     loadChildren: () =>   import('./components/data-module.module').then( m => m.DataModuleModule)
+  },
+  {
+    path: 'error',
+    component: ErrorPageComponent
   }
 ];
 @NgModule({
