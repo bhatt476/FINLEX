@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailsService } from 'src/app/services/details.service';
 import {Router} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-details',
@@ -14,11 +15,11 @@ export class DetailsComponent implements OnInit {
   constructor(
     private detailsService: DetailsService,
     private router: Router,
+    private location: Location
 
   ) { }
 
   ngOnInit(): void {
-    console.log('data', this.detailsService.getData());
     this.data = this.detailsService.getData();
     if (this.data){
       this.inputLabels = Object.keys(this.data);
@@ -29,7 +30,7 @@ export class DetailsComponent implements OnInit {
   }
 
   goToMain(){
-    this.router.navigate(['/data']);
+    this.location.back();
   }
 
 }

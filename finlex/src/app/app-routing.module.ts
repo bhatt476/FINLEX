@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'data'
+    redirectTo: 'data/table1'
   },
   {
     path: 'data',
