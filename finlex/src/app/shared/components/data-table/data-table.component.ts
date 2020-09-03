@@ -25,7 +25,6 @@ export class DataTableComponent implements OnInit  {
   ngOnInit(): void {
     if (this.tableData?.length && this.tableData[0]){
       this.headers = Object.keys(this.tableData[0]);
-      console.log('header si', this.tableData, this.headers);
       this.columns = this.headers.map((header) => {
         return {
           title: this.capitalizeFirstLetter(header),
@@ -50,7 +49,6 @@ export class DataTableComponent implements OnInit  {
         this.columns = this.columns.splice(0, this.columns.length);
       }
     });
-
   }
 
   capitalizeFirstLetter(text: string) {
