@@ -1,0 +1,22 @@
+<!-- <form>
+    <div *ngFor="let label of inputLabels">
+        <label>{{label}}</label><br>
+        <input disabled class="form-control" [value]="data[label]">
+    </div>
+</form>
+</button> -->
+<div class="mainContainer">
+    <h2 class="heading">Details</h2>
+    <form>
+        <ng-container class="row">
+            <div class="col-md-6" *ngFor="let label of inputLabels">
+                <label class="labelClass">{{label|titlecase }}</label>
+                <input class="form-control" [value]="data[label]">
+            </div>
+        </ng-container>
+        <div class="col-md-12 backButton">
+            <button class="btn btn-primary" (click)='goToMain()'>Back</button>
+        </div>
+    </form>
+</div>
+

@@ -1,3 +1,12 @@
-<!-- <p>main works!</p> -->
-<!-- <app-data-table [tableData]='tableData'></app-data-table> -->
-<app-data-table [tableData]='tableData' *ngIf='tableData.length'></app-data-table>
+<div *ngIf='tableData?.length'>
+    <h3>Data Table 1</h3>
+    <app-data-table [tableData]='tableData'></app-data-table>
+</div>
+<div  *ngIf='tableData2?.length'>
+    <h3>Data Table 2</h3>
+    <app-data-table [tableData]='tableData2'></app-data-table>
+</div>
+<div *ngIf='tableData3?.length'>
+    <h3>Data Table 3</h3>
+    <app-data-table [tableData]='tableData3'></app-data-table>
+</div>

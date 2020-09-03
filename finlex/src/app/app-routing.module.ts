@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'data',
     // canActivate: [AppAuthGuard],
-    loadChildren: () =>   import('./components/data-module/data-module.module').then( m => m.DataModuleModule)
+    loadChildren: () =>   import('./components/data-module.module').then( m => m.DataModuleModule)
   }
 ];
 @NgModule({

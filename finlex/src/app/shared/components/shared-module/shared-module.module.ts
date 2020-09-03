@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DataTableComponent } from '../data-table/data-table.component';
 import { FormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@tusharghoshbd/ngx-datatable';
-import { MainService } from '../../../services/main.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +17,5 @@ import { MainService } from '../../../services/main.service';
     DataTableComponent,
     FormsModule,
   ],
-  providers: [MainService]
 })
 export class SharedModuleModule { }

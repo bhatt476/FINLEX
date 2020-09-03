@@ -1,0 +1,23 @@
+[
+    {"ids": "OpenNew", "labels": "Open New"},
+    null,
+    {"ids": "ZoomIn", "labels": "Zoom In"},
+    {"ids": "ZoomOut", "labels": "Zoom Out"},
+    {"ids": "OriginalView", "labels": "Original View"},
+    null,
+    {"ids": "Quality"},
+    {"ids": "Pause"},
+    {"ids": "Mute"},
+    null,
+    {"ids": "Find", "labels": "Find..."},
+    {"ids": "FindAgain", "labels": "Find Again"},
+    {"ids": "Copy"},
+    {"ids": "CopyAgain", "labels": "Copy Again"},
+    {"ids": "CopySVG", "labels": "Copy SVG"},
+    {"ids": "ViewSVG", "labels": "View SVG"},
+    {"ids": "ViewSource", "labels": "View Source"},
+    {"ids": "SaveAs", "labels": "Save As"},
+    null,
+    {"ids": "Help"},
+    {"ids": "About", "labels": "About Adobe CVG Viewer..."}
+]
