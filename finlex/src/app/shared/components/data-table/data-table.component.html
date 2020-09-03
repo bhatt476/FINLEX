@@ -1,8 +1,11 @@
-<div class="row">
-    <div class="col-sm-12">
-      <h3>Data Table</h3>
-      <ngx-datatable tableClass="table table-striped table-bordered" class='pagination-lg' [tableId]="'basic'" [data]="tableData" [options]="options"
-        [columns]="columns">
-      </ngx-datatable>
-    </div>
-  </div>
+<div class="row" *ngIf='columns.length'>
+  <div class="col-sm-12">
+    <h3>Data Table</h3>
+    <ngx-datatable tableClass="table table-striped table-bordered" class='pagination-lg' [tableId]="'basic'" [data]="tableData" [options]="options"
+    [columns]="columns">
+  </ngx-datatable>
+</div>
+<ng-template #buttonsTemplate let-row let-rowIndex="rowIndex">
+  <button class="btn btn-transparent" (click)='viewDetails(row)'><i class="rb-ic rb-ic-add-frame">View Details</i></button>
+</ng-template>
+</div>
